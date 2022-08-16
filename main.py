@@ -9,13 +9,13 @@ import pytube
 import youtube_downloader
 import file_converter
 
-hide_streamlit_style = """
-            <style>
+#hide_streamlit_style = """
+#            <style>
             #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+#            footer {visibility: hidden;}
+#            </style>
+#            """
+#st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 # CODE
 choice = st.sidebar.selectbox(
@@ -44,7 +44,7 @@ if choice == "📺 Download Video" or choice == "📜 Download Playlist":
     
     if choice == "📜 Download Playlist":
         links = st.text_input("Enter the link to the playlist: ")
-        if links == "rickroll" or "rickastley" or "never gonna give u up" or "never gonna give you up" or "rick astley" or "easter egg" or "easteregg":
+        if links == "rickroll" or links == "rickastley" or links == "never gonna give u up" or links == "never gonna give you up" or links == "rick astley" or links == "easter egg" or "easteregg":
             links = "https://youtu.be/LLFhKaqnWwk"
             
         print("Downloading playlist...")
@@ -59,14 +59,14 @@ if choice == "📺 Download Video" or choice == "📜 Download Playlist":
         if st.button("Run"):
             youtube_downloader.download_playlist(links, quality)
 
-            test = os.listdir("C://Users//kirth//OneDrive//Documents//Youtube//Python//Youtube-Web-Downloader")
+            test = os.listdir("C://Users//kirth//YOURNAME//Documents//Youtube//Python//Youtube-Web-Downloader")
             for item in test:
                 if item.endswith(".mp4"):
                     video_file = open(item, 'rb')
                     video_bytes = video_file.read()
                     st.video(video_bytes)
 
-            test = os.listdir("C://Users//kirth//OneDrive//Documents//Youtube//Python//Youtube-Web-Downloader")
+            test = os.listdir("C://Users//YOURNAME//OneDrive//Documents//Youtube//Python//Youtube-Web-Downloader")
             for item in test:
                 if item.endswith(".mp4"):
                     time.sleep(30)
@@ -82,7 +82,7 @@ if choice == "📺 Download Video" or choice == "📜 Download Playlist":
         else:
             quality = 'very high'
         links = youtube_downloader.input_links()
-        if links == "rickroll" or "rickastley" or "never gonna give u up" or "never gonna give you up" or "rick astley" or "easter egg" or "easteregg":
+        if links == "rickroll" or links == "rickastley" or links == "never gonna give u up" or links == "never gonna give you up" or links == "rick astley" or links == "easter egg" or links == "easteregg":
             links = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         if st.button("Run"):
             filename = youtube_downloader.download_video(links, quality)
@@ -91,7 +91,7 @@ if choice == "📺 Download Video" or choice == "📜 Download Playlist":
             st.video(video_bytes)
 else:
     links = youtube_downloader.input_links()
-    if links == "rickroll" or "rickastley" or "never gonna give u up" or "never gonna give you up" or "rick astley" or "easter egg" or "easteregg":
+    if links == "rickroll" or links == "rickastley" or links == "never gonna give u up" or links == "never gonna give you up" or links == "rick astley" or links == "easter egg" or links == "easteregg":
         links = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     print("Downloading...")
     if st.button("Run"):
