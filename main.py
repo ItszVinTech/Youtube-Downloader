@@ -4,11 +4,20 @@ print("Loading...")
 import time
 import os
 import streamlit as st
-from streamlit_option_menu import option_menu as op
+
 import pytube
 import youtube_downloader
 import file_converter
 
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+# CODE
 choice = st.sidebar.selectbox(
 'How would you like to be contacted?',
 ('📺 Download Video', '📜 Download Playlist', '🎵 Download As MP3'))
@@ -77,6 +86,8 @@ if choice == "📺 Download Video" or choice == "📜 Download Playlist":
             st.video(video_bytes)
 else:
     links = youtube_downloader.input_links()
+    if links == "rickroll" or "rickastley" or "never gonna give u up" or "never gonna give you up" or "rick astley" or "easter egg" or "easteregg":
+        links = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     print("Downloading...")
     if st.button("Run"):
         filename = youtube_downloader.download_video(links, 'low')
