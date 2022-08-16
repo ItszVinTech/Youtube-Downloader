@@ -44,6 +44,9 @@ if choice == "📺 Download Video" or choice == "📜 Download Playlist":
     
     if choice == "📜 Download Playlist":
         links = st.text_input("Enter the link to the playlist: ")
+        if links == "rickroll" or "rickastley" or "never gonna give u up" or "never gonna give you up" or "rick astley" or "easter egg" or "easteregg":
+            links = "https://youtu.be/LLFhKaqnWwk"
+            
         print("Downloading playlist...")
         if quality == '🏅 Low':
             quality = 'low'
@@ -79,6 +82,8 @@ if choice == "📺 Download Video" or choice == "📜 Download Playlist":
         else:
             quality = 'very high'
         links = youtube_downloader.input_links()
+        if links == "rickroll" or "rickastley" or "never gonna give u up" or "never gonna give you up" or "rick astley" or "easter egg" or "easteregg":
+            links = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         if st.button("Run"):
             filename = youtube_downloader.download_video(links, quality)
             video_file = open(filename, 'rb')
